@@ -4,21 +4,27 @@ package estructuralibros;
  *
  * @author Billy Jeshua Sican Matias 0901-17-16250
  */
-public class Lista {
+public class Lista {       
 	private Nodo cabeza=null;
 	private int longitud=0;
-	private class Nodo {
-		public Libro libro;
+	private class Nodo{ 
+                public Libro info;
+                public Libro libro;
 		public Nodo siguiente=null;
 		public Nodo(Libro libro) {
-			this.libro=libro;
+			this.libro = libro;
 		}
 	}
+        
 	public void insertarPrincipio(Libro libro) {
 		Nodo nodo=new Nodo(libro);
-		nodo.siguiente=cabeza;
-		cabeza=nodo;
-		longitud++;	
+                
+                nodo.siguiente=cabeza;
+                cabeza=nodo;
+                longitud++;
+                
+		
+                
 	}
 	public void insertarFinal(Libro libro) {
 		Nodo nodo=new Nodo(libro);
@@ -94,6 +100,17 @@ public class Lista {
                 }
             }
         }
+        
+        public String Listar(){               
+		String Dato="";
+		Nodo aux=cabeza;
+		while (aux!=null){
+                    Dato+="{" +aux.libro.getAutor()+","+aux.libro.getTitulo()+","+aux.libro.getIsbn()+ "}";
+                    aux=aux.siguiente;
+		}
+            return Dato;
+	}
+        
         public void eliminarLibro(int n) {
             if (cabeza!=null){
                 if (n==0){
