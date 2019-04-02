@@ -6,7 +6,6 @@ import javax.swing.*;
  */
 public class Menu {
     public static void main(String[] args) { 
-        Libro ld = new Libro("","","");
         Lista ls = new Lista();
         String stOp;
         int itOp;
@@ -17,10 +16,9 @@ public class Menu {
             itOp=Integer.parseInt(stOp);
             switch(itOp){
                 case 1:
-                    ld.setAutor(JOptionPane.showInputDialog("ingrese el autor"));
-                    ld.setTitulo(JOptionPane.showInputDialog("ingrese el titulo"));
-                    ld.setIsbn(JOptionPane.showInputDialog("ingrese el isbn"));
-                    ls.insertarPrincipio(ld); 
+                    ls.insertarPrincipio(new Libro(JOptionPane.showInputDialog("ingrese el Titulo"),
+                            JOptionPane.showInputDialog("ingrese el Autor"),
+                            JOptionPane.showInputDialog("ingrese el isbn")));
                 break;
                 case 9:
                     JOptionPane.showMessageDialog(null, ls.Listar());

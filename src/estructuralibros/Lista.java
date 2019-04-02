@@ -105,7 +105,7 @@ public class Lista {
 		String Dato="";
 		Nodo aux=cabeza;
 		while (aux!=null){
-                    Dato+="{" +aux.libro.getAutor()+","+aux.libro.getTitulo()+","+aux.libro.getIsbn()+ "}";
+                    Dato+="{" +aux.libro.getTitulo()+","+aux.libro.getAutor()+","+aux.libro.getIsbn()+ "}";
                     aux=aux.siguiente;
 		}
             return Dato;
