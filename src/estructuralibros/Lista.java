@@ -21,11 +21,9 @@ public class Lista {
                 
                 nodo.siguiente=cabeza;
                 cabeza=nodo;
-                longitud++;
-                
-		
-                
+                longitud++;                
 	}
+        
 	public void insertarFinal(Libro libro) {
 		Nodo nodo=new Nodo(libro);
 		if (cabeza==null) {
@@ -39,11 +37,12 @@ public class Lista {
 		}
 		longitud++;
 	}
+        
 	public void insertarDespues(int n, Libro libro) {
 		Nodo nodo=new Nodo(libro);
 		if (cabeza==null) {
 			cabeza=nodo;
-		} else {
+		} else {                       
 			Nodo puntero=cabeza;
 			int contador=0;
 			while (contador<n && puntero.siguiente!=null) {
@@ -55,7 +54,8 @@ public class Lista {
 		}
 		longitud++;
 	}
-	public Libro obtener(int n) {
+	
+        public Libro obtener(int n) {
 		if (cabeza==null) {
 			return null;
 		} else {
@@ -101,14 +101,15 @@ public class Lista {
             }
         }
         
-        public String Listar(){               
+        public void Listar(){               
 		String Dato="";
 		Nodo aux=cabeza;
+                System.out.println("\n");
 		while (aux!=null){
-                    Dato+="{" +aux.libro.getTitulo()+","+aux.libro.getAutor()+","+aux.libro.getIsbn()+ "}";
-                    aux=aux.siguiente;
+                    Dato+="{Titulo: "+aux.libro.getTitulo()+", Autor: "+aux.libro.getAutor()+", ISBN: "+aux.libro.getIsbn()+ "}\n";
+                    aux=aux.siguiente;                   
 		}
-            return Dato;
+                System.out.println(Dato);
 	}
         
         public void eliminarLibro(int n) {
