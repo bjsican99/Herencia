@@ -6,11 +6,10 @@ import javax.swing.*;
  * @author Billy Jeshua Sican Matias 0901-17-16250
  */
 public class Menu {
-    public static void main(String[] args) { 
-        //Diferentes tipos de variables
+    public void MenuLista(){
+         //Diferentes tipos de variable
         Lista ls = new Lista();
-        String sAutor, sTitulo, sIsbn;
-        
+        String sAutor, sTitulo, sIsbn;       
         String stOp;//variable para guardar la opcion
         int itOp;//variable auxiliar 
         int intPos;//Variables de case3
@@ -92,5 +91,27 @@ public class Menu {
             }
         }while(itOp != 0);
         JOptionPane.showMessageDialog(null, "Fin Del Programa");
+    }
+    
+    public void MenuPila(){
+        Pila pila = new Pila();
+        String stgOpc;
+        String sAutor, sTitulo, sIsbn; 
+        int intOpc;//variable auxiliar 
+        int intPos;//Variables de case3
+        do{
+            stgOpc=JOptionPane.showInputDialog("Seleccione una opcion:"
+                    + "\n1) Push"
+                    + "\n2) Pop"
+                    + "\n3) Top"
+                    + "\n4) Borrar Pila"
+                    + "\n5) Crear Pila"
+                    + "\n0) Salir");
+            intOpc=Integer.parseInt(stgOpc);            
+            
+            switch(intOpc){
+                
+            }
+        }while(intOpc != 0);
     }
 }
