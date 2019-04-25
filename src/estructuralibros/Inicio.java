@@ -8,7 +8,6 @@ public class Inicio {
 
     public static void main(String[] args) {
         Menu menu = new Menu();
-        menu.MenuLista();
-    }
-    
-}
+        menu.MenuInicio();
+        }
+    }   

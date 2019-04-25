@@ -6,6 +6,7 @@ import javax.swing.*;
  * @author Billy Jeshua Sican Matias 0901-17-16250
  */
 public class Menu {
+    Inicio inicio = new Inicio();
     public void MenuLista(){
          //Diferentes tipos de variable
         Lista ls = new Lista();
@@ -25,7 +26,7 @@ public class Menu {
                     + "\n8) Eliminar Ultimo Registro"
                     + "\n9) Buscar Libro y Eliminarlo"
                     + "\n10) Mostrar Todos Los Datos"
-                    + "\n0) Finalizar Programa");
+                    + "\n0)  Volver A Menu");
             itOp=Integer.parseInt(stOp);            
             //Menu Con diferentes opciones.
             switch(itOp){
@@ -90,7 +91,7 @@ public class Menu {
                 break;
             }
         }while(itOp != 0);
-        JOptionPane.showMessageDialog(null, "Fin Del Programa");
+        MenuInicio();
     }
     
     public void MenuPila(){
@@ -98,20 +99,60 @@ public class Menu {
         String stgOpc;
         String sAutor, sTitulo, sIsbn; 
         int intOpc;//variable auxiliar 
-        int intPos;//Variables de case3
         do{
             stgOpc=JOptionPane.showInputDialog("Seleccione una opcion:"
                     + "\n1) Push"
                     + "\n2) Pop"
                     + "\n3) Top"
                     + "\n4) Borrar Pila"
-                    + "\n5) Crear Pila"
-                    + "\n0) Salir");
+                    + "\n5} Mostrar Todo"
+                    + "\n0) Volver A Menu");
             intOpc=Integer.parseInt(stgOpc);            
             
             switch(intOpc){
-                
+                case 1:{
+                    sAutor =JOptionPane.showInputDialog("Ingrese el Titulo");
+                    sTitulo = JOptionPane.showInputDialog("Ingrese el Autor");
+                    sIsbn = JOptionPane.showInputDialog("Ingrese el isbn");
+                    pila.aplilar(new Libro(sAutor,sTitulo,sIsbn));//crea una nueva estructura para guardar los datos                   
+                    JOptionPane.showMessageDialog(null, "Dato Apilado");
+                    pila.mostrar();
+                }break;
+                case 2:{
+                    JOptionPane.showMessageDialog(null, "Desapilando");
+                    pila.desapilar();
+                    pila.mostrar();
+                }break;
+                case 3:{
+                    pila.mostrar();
+                }break;
+                case 4:{
+                    pila.Vaciar();
+                }break;
+                case 5:{                  
+                    JOptionPane.showMessageDialog(null, pila.MostrarTodo());
+                }break;
             }
         }while(intOpc != 0);
+        MenuInicio();
+    }
+    
+    public void MenuInicio(){
+        int intopc;
+        intopc=Integer.parseInt(JOptionPane.showInputDialog(null, "1) Pilas\n"
+                + "2) Colas\n"
+                + "3) Listas\n"
+                + "0) Cerrar Programa"));
+        switch(intopc){
+            case 1:{
+                MenuPila();
+            }break;
+            case 2:{
+                
+            }break;
+            case 3:{
+                MenuLista();
+            }break;
+        }
     }
 }
