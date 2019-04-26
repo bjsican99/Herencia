@@ -94,12 +94,14 @@ public class Menu {
         MenuInicio();
     }
     
-    public void MenuPila(){
-        Pila pila = new Pila();
+    public void MenuPila(){//Opciones en el menu para pilas
+        Pila pila = new Pila();//llamado a la clase pila
+        //variables auxiliares
         String stgOpc;
         String sAutor, sTitulo, sIsbn; 
         int intOpc;//variable auxiliar 
         do{
+            //Muestra las opciones elegibles y las guarda en una varible auxiliar
             stgOpc=JOptionPane.showInputDialog("Seleccione una opcion:"
                     + "\n1) Push"
                     + "\n2) Pop"
@@ -110,47 +112,48 @@ public class Menu {
             intOpc=Integer.parseInt(stgOpc);            
             
             switch(intOpc){
-                case 1:{
+                case 1:{//caso uno el ingreso de de la pila PUSH
+                    //Pide los valores y los guarda en variables de tipo String
                     sAutor =JOptionPane.showInputDialog("Ingrese el Titulo");
                     sTitulo = JOptionPane.showInputDialog("Ingrese el Autor");
                     sIsbn = JOptionPane.showInputDialog("Ingrese el isbn");
                     pila.aplilar(new Libro(sAutor,sTitulo,sIsbn));//crea una nueva estructura para guardar los datos                   
                     JOptionPane.showMessageDialog(null, "Dato Apilado");
-                    pila.mostrar();
+                    pila.mostrar();//llama a la funcion mostras de la clase pila
                 }break;
-                case 2:{
+                case 2:{//Elimina el elemento de la cima en la pila POP, y muestra la nueva cima
                     JOptionPane.showMessageDialog(null, "Desapilando");
                     pila.desapilar();
                     pila.mostrar();
                 }break;
-                case 3:{
+                case 3:{//muestra cual es el elemento de la cima
                     pila.mostrar();
                 }break;
-                case 4:{
+                case 4:{//elimina todos los elemento de la cima
                     pila.Vaciar();
                 }break;
-                case 5:{                  
+                case 5:{//Muestra todos los elementos de la pila
                     JOptionPane.showMessageDialog(null, pila.MostrarTodo());
                 }break;
             }
-        }while(intOpc != 0);
-        MenuInicio();
+        }while(intOpc != 0);//varifica si la variable no es igual a cero para poder seguir con el ciclo
+        MenuInicio();//vuelve al menu de Inicio
     }
     
-    public void MenuInicio(){
-        int intopc;
+    public void MenuInicio(){//Funcion para escoger si va a ingresar, pilas, colas o listas
+        int intopc;//variables auxiliar
         intopc=Integer.parseInt(JOptionPane.showInputDialog(null, "1) Pilas\n"
                 + "2) Colas\n"
                 + "3) Listas\n"
                 + "0) Cerrar Programa"));
         switch(intopc){
-            case 1:{
+            case 1:{//llamado a la función del menu de PILAS
                 MenuPila();
             }break;
-            case 2:{
+            case 2:{//llamado a la función del menu de Colas
                 
             }break;
-            case 3:{
+            case 3:{//Llamado a la función del menu de Listas
                 MenuLista();
             }break;
         }

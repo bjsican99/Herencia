@@ -1,7 +1,7 @@
 package estructuralibros;
 
-/**
- *
+/**Software para la comprencion del uso de Pilas, Colas y Listas
+ * 
  * @author Billy Jeshua Sican Matias  0901-17-16250
  */
 public class Inicio {

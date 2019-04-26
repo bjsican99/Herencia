@@ -15,7 +15,7 @@ public class Lista {
                 //guardada en un nodo.
                 public Libro libro;
 		public Nodo siguiente=null;
-		public Nodo(Libro libro) {//el nodo asigna el valor tidpo estructura
+		public Nodo(Libro libro) {//el nodo asigna el valor tipo estructura
 			this.libro = libro;
 		}
 	}
