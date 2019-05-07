@@ -140,6 +140,29 @@ public class Menu {
         MenuInicio();//vuelve al menu de Inicio
     }
     
+    public void MenuColas(){
+        Colas cola = new Colas();//llamado a la clase pila
+        //variables auxiliares
+        String stgOpc;
+        String sAutor, sTitulo, sIsbn; 
+        int intOpc;//variable auxiliar 
+        do{
+            //Muestra las opciones elegibles y las guarda en una varible auxiliar
+            stgOpc=JOptionPane.showInputDialog("Seleccione una opcion:"
+                    + "\n1) Encolar"
+                    + "\n2) Eliminar"
+                    + "\n3) Top"
+                    + "\n4) Borrar Pila"
+                    + "\n5} Mostrar Todo"
+                    + "\n0) Volver A Menu");
+            intOpc=Integer.parseInt(stgOpc);    
+            
+            switch(intOpc){
+                
+            }
+        }while(intOpc !=0);
+    }
+    
     public void MenuInicio(){//Funcion para escoger si va a ingresar, pilas, colas o listas
         int intopc;//variables auxiliar
         intopc=Integer.parseInt(JOptionPane.showInputDialog(null, "1) Pilas\n"
