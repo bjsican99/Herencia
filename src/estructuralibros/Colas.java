@@ -16,28 +16,43 @@ public class Colas {
             this.libro = libro;
         }
     }
+    //Metodo para encolar
     public void encolar(Libro libro){
+        //se crea un nodo con los datos recibidos
         Nodo nodolibro = new Nodo(libro);
+        //verifica si la cola esta vacia
+        //entonces el nodo sera la cabeza de la cola
         if(cabeza == null){
             cabeza = nodolibro;
-        }else{
+        }else{//de lo contrario, el ultimo nodo apuntara a un nuevo nodo.
             ultimo.siguiente=nodolibro;
         }
+        //ultimo sera el nodo libro
         ultimo = nodolibro;
     }
-    
+    //metodo para desencolar un nodo
     public void eliminar(){
+        //si la cabezz no esta vacia
+        //entones se crea un nodo
+        //la cabeza sera igual al valor del siguiente nodo
+        //se iguala a null para que no queden punteros
         if(cabeza != null){
             Nodo eliminar = cabeza;
             cabeza = cabeza.siguiente;
             eliminar.siguiente=null;
+            //si la cola esta vacia
+            //ultimo sera igual a null
             if(cabeza == null){
                 ultimo = null;
             }
         }
     }
-    
+    //funcion tipo libro para obtener la cabeza de la cola
     public Libro obtener(){
+        //si la cabeza esta vacia
+        //reorna nullo
+        //de lo contrario
+        //retona cabaza y el dato que tiene ese nodo
         if(cabeza == null){
             return null;
         }else{
