@@ -150,17 +150,45 @@ public class Menu {
             //Muestra las opciones elegibles y las guarda en una varible auxiliar
             stgOpc=JOptionPane.showInputDialog("Seleccione una opcion:"
                     + "\n1) Encolar"
-                    + "\n2) Eliminar"
-                    + "\n3) Top"
-                    + "\n4) Borrar Pila"
+                    + "\n2) Desencolar"
+                    + "\n3) Cabeza"
+                    + "\n4) Borrar Cola"
                     + "\n5} Mostrar Todo"
                     + "\n0) Volver A Menu");
             intOpc=Integer.parseInt(stgOpc);    
             
             switch(intOpc){
-                
+                case 1:{
+                    //caso uno el ingreso de de la Cola Encolar
+                    //Pide los valores y los guarda en variables de tipo String
+                    sAutor =JOptionPane.showInputDialog("Ingrese el Titulo");
+                    sTitulo = JOptionPane.showInputDialog("Ingrese el Autor");
+                    sIsbn = JOptionPane.showInputDialog("Ingrese el isbn");
+                    cola.encolar(new Libro(sAutor,sTitulo,sIsbn));//crea una nueva estructura para guardar los datos                   
+                    JOptionPane.showMessageDialog(null, "Dato Encolado");
+                    cola.mostrar();//llama a la funcion mostras de la clase Colas
+                }break;
+                case 2:{
+                    //Elimina el elemento de la ccabeza en la cola desencolar, y muestra la nueva cabeza
+                    JOptionPane.showMessageDialog(null, "Desapilando");
+                    cola.eliminar();
+                    cola.mostrar();
+                }break;
+                case 3:{
+                   //muestra cual es el elemento de la ccabeza
+                    cola.mostrar(); 
+                }break;
+                case 4:{
+                   //elimina todos los elemento de la cola
+                    cola.Vaciar(); 
+                }break;
+                case 5:{
+                    //Muestra todos los elementos de la pila
+                    JOptionPane.showMessageDialog(null, cola.MostrarTodo());
+                }break;
             }
         }while(intOpc !=0);
+        MenuInicio();//vuelve al menu de Inicio
     }
     
     public void MenuInicio(){//Funcion para escoger si va a ingresar, pilas, colas o listas
@@ -174,7 +202,7 @@ public class Menu {
                 MenuPila();
             }break;
             case 2:{//llamado a la función del menu de Colas
-                
+                MenuColas();
             }break;
             case 3:{//Llamado a la función del menu de Listas
                 MenuLista();
